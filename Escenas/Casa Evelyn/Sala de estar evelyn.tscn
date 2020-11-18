@@ -1,0 +1,168 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Escenas/Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Vacia Vacia.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Puerta.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Sala de estar evelyn.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Mueble.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Mesa.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Silla.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Sofa.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Bebida 1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Copa.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Bebida 2.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.4922, 8.93374 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 59.5509, 14.5568 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 19, 7.97885 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 45.941, 8.26247 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64.7434, 18.2158 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.39307, 13.047 )
+
+[node name="Sala" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sala" type="StaticBody2D" parent="."]
+
+[node name="Spr" type="Sprite" parent="Sala"]
+position = Vector2( 468.918, 297.342 )
+scale = Vector2( 3.59141, 3.59141 )
+texture = ExtResource( 2 )
+
+[node name="Col" type="CollisionPolygon2D" parent="Sala"]
+polygon = PoolVector2Array( 124.861, 279.972, 172.062, 265.27, 470.7, 119.3, 778, 276.421, 792.75, 71.8, 452.65, 19.55, 198.05, 87.95, 131.55, 259.9 )
+
+[node name="Col2" type="CollisionPolygon2D" parent="Sala"]
+polygon = PoolVector2Array( 178.526, 263.474, 179.579, 354, 465.895, 494, 756.421, 356.105, 756.421, 222.421, 797.474, 249.789, 781.684, 422.421, 457.474, 535.053, 265.895, 476.105, 150.105, 425.579, 139.579, 351.895, 142.737, 290.842, 141.684, 274, 145.895, 265.579, 171.158, 219.263 )
+
+[node name="Puerta" type="Area2D" parent="Sala"]
+position = Vector2( 180.351, 152.646 )
+scale = Vector2( 3.591, 3.591 )
+
+[node name="Puerta" type="Sprite" parent="Sala/Puerta"]
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="Col" type="CollisionShape2D" parent="Sala/Puerta"]
+position = Vector2( 71.7975, -3.41893 )
+shape = SubResource( 1 )
+
+[node name="Sofa" type="Area2D" parent="."]
+position = Vector2( 43.8011, 23.7778 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spr" type="Sprite" parent="Sofa"]
+position = Vector2( 460.399, 290.908 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 8 )
+
+[node name="Col" type="CollisionShape2D" parent="Sofa"]
+position = Vector2( 337.421, 372.726 )
+rotation = 0.541052
+shape = SubResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sofa"]
+position = Vector2( 337.421, 372.726 )
+rotation = 0.541052
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sofa/StaticBody2D"]
+polygon = PoolVector2Array( -62.77, -8.59001, 49.7412, -9.71762, 64.9795, 2.68605, 76.8624, -22.3894, 85.6718, 8.21927, 79.5247, 32.8737, -33.6638, 54.8014 )
+
+[node name="Silla" type="Area2D" parent="."]
+
+[node name="Spr" type="Sprite" parent="Silla"]
+position = Vector2( 459.673, 266.333 )
+rotation = 0.0698132
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 7 )
+
+[node name="Col" type="CollisionShape2D" parent="Silla"]
+position = Vector2( 632.683, 236.77 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Silla"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Silla/StaticBody2D"]
+polygon = PoolVector2Array( 621.83, 228.61, 647.335, 219.411, 649.59, 240.089, 621.443, 243.648 )
+
+[node name="Mesa" type="Area2D" parent="."]
+
+[node name="Spr" type="Sprite" parent="Mesa"]
+position = Vector2( 466.311, 280.629 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 6 )
+
+[node name="Col" type="CollisionShape2D" parent="Mesa"]
+position = Vector2( 552.345, 211.389 )
+rotation = 0.541052
+shape = SubResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mesa"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mesa/StaticBody2D"]
+polygon = PoolVector2Array( 587.507, 241.98, 495.001, 193.03, 518.828, 182.358, 531.884, 180.736, 618.268, 227.972 )
+
+[node name="Mueble" type="Area2D" parent="."]
+
+[node name="Mueble" type="Sprite" parent="Mueble"]
+position = Vector2( 458.042, 301.114 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 5 )
+
+[node name="Col" type="CollisionShape2D" parent="Mueble"]
+position = Vector2( 301.13, 210.345 )
+rotation = -0.406662
+shape = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mueble"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mueble/StaticBody2D"]
+polygon = PoolVector2Array( 226.402, 254.606, 246.973, 254.53, 365.966, 200.885, 362.572, 160.043, 346.902, 149.235, 227.482, 208.135 )
+
+[node name="Jugador" parent="." instance=ExtResource( 1 )]
+position = Vector2( 404.361, 271.874 )
+
+[node name="Puerta" type="Area2D" parent="."]
+position = Vector2( 468.439, 296.69 )
+scale = Vector2( 3.591, 3.591 )
+
+[node name="Puerta" type="Sprite" parent="Puerta"]
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="Col" type="CollisionShape2D" parent="Puerta"]
+position = Vector2( 71.9696, -3.44762 )
+shape = SubResource( 2 )
+
+[node name="Alcohol1" type="Sprite" parent="."]
+position = Vector2( 706.388, 351.264 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 11 )
+
+[node name="Copa" type="Sprite" parent="."]
+position = Vector2( 466.529, 280.747 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 10 )
+
+[node name="Vino" type="Sprite" parent="."]
+position = Vector2( 467.193, 298.585 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 9 )
+
+[node name="Alcohol 2" type="Sprite" parent="."]
+position = Vector2( 468.557, 294.757 )
+scale = Vector2( 3.591, 3.591 )
+texture = ExtResource( 11 )

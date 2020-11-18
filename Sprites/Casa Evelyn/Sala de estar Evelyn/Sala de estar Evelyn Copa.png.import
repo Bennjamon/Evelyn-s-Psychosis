@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Inv.png-4afac19716b3805c577109122f7ce5a4.stex"
+path="res://.import/Sala de estar Evelyn Copa.png-16c02b0b41781617a523fab7b0d6a012.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/inv/Inv.png"
-dest_files=[ "res://.import/Inv.png-4afac19716b3805c577109122f7ce5a4.stex" ]
+source_file="res://Sprites/Casa Evelyn/Sala de estar Evelyn/Sala de estar Evelyn Copa.png"
+dest_files=[ "res://.import/Sala de estar Evelyn Copa.png-16c02b0b41781617a523fab7b0d6a012.stex" ]
 
 [params]
 
