@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Slot.gd" type="Script" id=1]
+
+[node name="Slot" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+margin_top = 63.0
+margin_right = 40.0
+margin_bottom = 103.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+margin_right = 40.0
+margin_bottom = 14.0
+[connection signal="mouse_entered" from="." to="." method="_on_Slot_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Slot_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_Slot_pressed"]

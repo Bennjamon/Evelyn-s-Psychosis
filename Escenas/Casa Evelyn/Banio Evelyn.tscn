@@ -1,0 +1,149 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Escenas/Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Scenary.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Casa Evelyn/Banio Evelyn.png" type="Texture" id=3]
+[ext_resource path="res://Escenas/Variado/FPS.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Variado/E.png" type="Texture" id=5]
+[ext_resource path="res://Escenas/Variado/Item.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.5581, 5.22952 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.3677, 3.21008 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 100.575, 12.1927 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 40.731, 67.9298 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 102.666, 29.3033 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 21.7352, 11.2115 )
+
+[node name="Banio" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Banio" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Banio"]
+position = Vector2( 484.65, 306.574 )
+scale = Vector2( 5.48165, 5.48165 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Col" type="CollisionPolygon2D" parent="Banio"]
+position = Vector2( 8.46973, -23.9333 )
+polygon = PoolVector2Array( 188.393, 296.519, 441.519, 174.126, 454.884, 154.42, 779.536, 254.143, 809.453, 83.5064, 414.995, 7.05252, 135.772, 146.664, 175.661, 258.575 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Col2" type="CollisionPolygon2D" parent="Banio"]
+position = Vector2( -0.999969, 3.05176e-05 )
+polygon = PoolVector2Array( 224.526, 318.841, 266.631, 360.946, 511.259, 482.073, 730.959, 376.101, 749.051, 241.697, 827.363, 459.971, 410.698, 621.714, 88.9702, 431.842 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Col3" type="CollisionShape2D" parent="Banio"]
+position = Vector2( 372.385, 218.52 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Col4" type="CollisionShape2D" parent="Banio"]
+position = Vector2( 476.69, 188.764 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Col5" type="CollisionShape2D" parent="Banio"]
+position = Vector2( 627.901, 262.514 )
+rotation = 0.251327
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Puerta" type="Area2D" parent="Banio"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Col" type="CollisionShape2D" parent="Banio/Puerta"]
+position = Vector2( 291.692, 259.896 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Baniera" type="Area2D" parent="Banio"]
+
+[node name="Col" type="CollisionShape2D" parent="Banio/Baniera"]
+position = Vector2( 617.994, 284.997 )
+rotation = 0.349066
+shape = SubResource( 5 )
+
+[node name="Inodoro" type="Area2D" parent="Banio"]
+
+[node name="Col" type="CollisionShape2D" parent="Banio/Inodoro"]
+position = Vector2( 478.406, 197.336 )
+shape = SubResource( 6 )
+
+[node name="Item" parent="Banio" instance=ExtResource( 6 )]
+itemName = "logo"
+texture = "res://logo.png"
+size = Vector2( 20, 20 )
+pos = Vector2( 350, 350 )
+
+[node name="Jugador" parent="." instance=ExtResource( 1 )]
+position = Vector2( 406.242, 259.785 )
+
+[node name="Camara" type="Camera2D" parent="Jugador"]
+position = Vector2( 51.5508, -1.43198 )
+current = true
+zoom = Vector2( 0.6, 0.6 )
+limit_left = 148
+limit_top = 18
+limit_right = 805
+limit_bottom = 535
+
+[node name="FPS" parent="." instance=ExtResource( 4 )]
+
+[node name="E" type="Sprite" parent="."]
+position = Vector2( 261.294, 181.573 )
+scale = Vector2( 2.11819, 2.11819 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Baniera" type="Position2D" parent="."]
+position = Vector2( 637.295, 212.707 )
+
+[node name="Puerta" type="Position2D" parent="."]
+position = Vector2( 261.115, 181.123 )
+
+[node name="Inodoro" type="Position2D" parent="."]
+position = Vector2( 482.864, 163.287 )
+[connection signal="body_entered" from="Banio/Puerta" to="." method="_on_Puerta_body_entered"]
+[connection signal="body_exited" from="Banio/Puerta" to="." method="_on_Puerta_body_exited"]
+[connection signal="body_entered" from="Banio/Baniera" to="." method="_on_Baniera_body_entered"]
+[connection signal="body_exited" from="Banio/Baniera" to="." method="_on_Baniera_body_exited"]
+[connection signal="body_entered" from="Banio/Inodoro" to="." method="_on_Inodoro_body_entered"]
+[connection signal="body_exited" from="Banio/Inodoro" to="." method="_on_Inodoro_body_exited"]
