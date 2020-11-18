@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Player
 
-var vel_mov = 300
+var vel_mov = 4
 var velocidad = Vector2()
 
 var col_arriba: bool
@@ -11,7 +11,6 @@ var col_izquierda: bool
 var col_derecha: bool
 
 var lastItem
-
 
 func get_input():
 	velocidad = Vector2()
@@ -50,6 +49,7 @@ func _physics_process(delta):
 		anim()
 #		if not $PopupMenu/Panel/Slot.empty:
 #			lastItem = $PopupMenu/Panel/Slot.name
+	move_and_collide(velocidad)
 
 func _ready():
 	reset()
